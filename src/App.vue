@@ -1,27 +1,71 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="App">
+      <router-view></router-view>
+
+    <tabbar>
+      <tab-bar-item path='/home'>
+        <template v-slot:item-icon>
+          <img src="~assets/img/tabbar/home.svg" alt="">
+        </template>
+        <template v-slot:item-icon-active>
+          <img src="~assets/img/tabbar/home_active.svg" alt="">
+        </template>
+        <template v-slot:item-text>
+          <div>首页</div>
+        </template>
+      </tab-bar-item>
+      <tab-bar-item path='/category'>
+        <template v-slot:item-icon>
+          <img src="~assets/img/tabbar/category.svg" alt="">
+        </template>
+        <template v-slot:item-icon-active>
+          <img src="~assets/img/tabbar/category_active.svg" alt="">
+        </template>
+        <template v-slot:item-text>
+          <div>分类</div>
+        </template>
+      </tab-bar-item>
+      <tab-bar-item path='/shopcart'>
+        <template v-slot:item-icon>
+          <img src="~assets/img/tabbar/shopcart.svg" alt="">
+        </template>
+        <template v-slot:item-icon-active>
+          <img src="~assets/img/tabbar/shopcart_active.svg" alt="">
+        </template>
+        <template v-slot:item-text>
+          <div>购物车</div>
+        </template>
+      </tab-bar-item>
+      <tab-bar-item path='/profile'>
+        <template v-slot:item-icon>
+          <img src="~assets/img/tabbar/profile.svg" alt="">
+        </template>
+        <template v-slot:item-icon-active>
+          <img src="~assets/img/tabbar/profile_active.svg" alt="">
+        </template>
+        <template v-slot:item-text>
+          <div>我的</div>
+        </template>
+      </tab-bar-item>
+    </tabbar>
+    
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Tabbar from './components/common/tabbar/Tabbar.vue'
+import TabBarItem from './components/common/tabbar/TabBarItem.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Tabbar,
+    TabBarItem
   },
 }
 </script>
 
 <style>
-@import "./assets/css/base.css";
-/* #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-} */
+@import "assets/css/base.css";  
+/* style标签中引用文件要加@import */
+
 </style>
